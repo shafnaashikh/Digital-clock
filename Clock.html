@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                background-color: black;
+            }
+            .clock{
+                background-color: black;
+                width: 20.3cm;
+                height: 4,5cm;
+                box-shadow: 2px 2px 10px whitesmoke, -2px 2px 2px whitesmoke,2px -2px 2px whitesmoke;
+                margin-left: 22%;
+                margin-top: 22%;
+
+            }
+            .clock .display{
+                color: darkgreen;
+                font-style: oblique;
+                font-size: 3.5cm;
+                letter-spacing: 3px;
+                text-shadow: 3px 3px 4px whitesmoke, 3px 3px 4px rgb(235, 235, 8);
+                margin-top: 4cm;
+
+
+            }
+        </style>
+    </head>
+    <body>
+        <div class="clock">
+            
+                <div class="display"></div>
+        </div>
+        <script>
+            setInterval(function(){
+                const clock = document.querySelector(".display");
+            let time = new Date(); 
+            let sec = time.getSeconds();
+            let min = time.getMinutes();
+            let hr = time.getHours();
+            let day = "AM"
+            if(hr> 12){
+                day = "PM";
+                hr = hr - 12;
+            }
+            if(hr< 10){
+                hr = "0" + hr;
+            }
+            if(min< 10){
+                min  = "0" + min;
+            }
+            if(sec< 10){
+                sec = "0" + sec;
+            }
+
+            clock.textContent =  hr + ':'+ min + ':' + sec + " " + day;
+    
+            });
+           
+        </script>
+    </body>
+</html>
